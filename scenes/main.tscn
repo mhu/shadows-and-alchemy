@@ -1,16 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://un77yrge6ivk"]
+[gd_scene load_steps=17 format=3 uid="uid://un77yrge6ivk"]
 
 [ext_resource type="Texture2D" uid="uid://cpegntwa4vnbp" path="res://assets/sprites/deep-night-tileset.png" id="1_nwnib"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_rddvn"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_rddvn"]
 [ext_resource type="Texture2D" uid="uid://gomi8x08ts7e" path="res://assets/sprites/exit_animated.png" id="2_1y2hw"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_mg8nf"]
 [ext_resource type="Script" path="res://scripts/exit.gd" id="3_pvn2f"]
 [ext_resource type="Texture2D" uid="uid://bdytp0md6uaky" path="res://assets/sprites/light-source.png" id="4_8ndsn"]
 [ext_resource type="PackedScene" uid="uid://mqqcthu8tkfv" path="res://scenes/enemy.tscn" id="5_0iqbk"]
-[ext_resource type="Texture2D" uid="uid://bmtff6wipcg0o" path="res://assets/sprites/heart_full.png" id="5_65ldl"]
-[ext_resource type="PackedScene" uid="uid://ct0vq6gd4x57c" path="res://scenes/game_over.tscn" id="6_kkvkx"]
-[ext_resource type="Texture2D" uid="uid://cq2eln86xng0q" path="res://assets/sprites/shadow_stag.png" id="8_1ex8v"]
-[ext_resource type="Texture2D" uid="uid://cb5ifovb7yosq" path="res://assets/sprites/shadow_kangaroo.png" id="8_pjyqi"]
+[ext_resource type="PackedScene" uid="uid://tfqmbcq0oip0" path="res://scenes/player.tscn" id="7_hono2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xu56o"]
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -1677,50 +1673,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tbiq2"]
 radius = 6.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_46trr"]
-atlas = ExtResource("8_pjyqi")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ptg0"]
-atlas = ExtResource("8_pjyqi")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3p12"]
-atlas = ExtResource("8_1ex8v")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jby22"]
-atlas = ExtResource("8_1ex8v")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4mgh6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_46trr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ptg0")
-}],
-"loop": true,
-"name": &"kangaroo_idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q3p12")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jby22")
-}],
-"loop": true,
-"name": &"stag_idle",
-"speed": 2.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sevl1"]
-size = Vector2(14, 14.5)
-
 [node name="Main" type="Node"]
 script = ExtResource("1_rddvn")
 
@@ -1763,43 +1715,8 @@ position = Vector2(220, 153)
 [node name="Enemy3" parent="Enemies" instance=ExtResource("5_0iqbk")]
 position = Vector2(125, 97)
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(23, 266)
-script = ExtResource("2_mg8nf")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-sprite_frames = SubResource("SpriteFrames_4mgh6")
-animation = &"kangaroo_idle"
-autoplay = "stag_idle"
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = 0
-limit_top = 0
-limit_right = 512
-limit_bottom = 288
-position_smoothing_enabled = true
-
-[node name="GameOverScreen" parent="Player/Camera2D" instance=ExtResource("6_kkvkx")]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 7.25)
-shape = SubResource("RectangleShape2D_sevl1")
-
-[node name="HealthBar" type="Node2D" parent="Player"]
-position = Vector2(0, 2)
-
-[node name="HeartFull" type="Sprite2D" parent="Player/HealthBar"]
-position = Vector2(-8, 16)
-texture = ExtResource("5_65ldl")
-
-[node name="HeartFull2" type="Sprite2D" parent="Player/HealthBar"]
-position = Vector2(0, 16)
-texture = ExtResource("5_65ldl")
-
-[node name="HeartFull3" type="Sprite2D" parent="Player/HealthBar"]
-position = Vector2(8, 16)
-texture = ExtResource("5_65ldl")
+[node name="Player" parent="." instance=ExtResource("7_hono2")]
+position = Vector2(23, 265)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.25098, 0.25098, 0.25098, 1)

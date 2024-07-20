@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://tfqmbcq0oip0"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_5ypc7"]
+[ext_resource type="Texture2D" uid="uid://cb5ifovb7yosq" path="res://assets/sprites/shadow_kangaroo.png" id="2_n21gf"]
+[ext_resource type="Texture2D" uid="uid://cq2eln86xng0q" path="res://assets/sprites/shadow_stag.png" id="3_12wms"]
+[ext_resource type="PackedScene" uid="uid://ct0vq6gd4x57c" path="res://scenes/game_over.tscn" id="4_l3j7c"]
+[ext_resource type="Texture2D" uid="uid://bmtff6wipcg0o" path="res://assets/sprites/heart_full.png" id="5_xsdyi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46trr"]
+atlas = ExtResource("2_n21gf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ptg0"]
+atlas = ExtResource("2_n21gf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3p12"]
+atlas = ExtResource("3_12wms")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jby22"]
+atlas = ExtResource("3_12wms")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4mgh6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46trr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ptg0")
+}],
+"loop": true,
+"name": &"kangaroo_idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3p12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jby22")
+}],
+"loop": true,
+"name": &"stag_idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sevl1"]
+size = Vector2(14, 14.5)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_5ypc7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4mgh6")
+animation = &"stag_idle"
+autoplay = "stag_idle"
+frame_progress = 0.513694
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="GameOverScreen" parent="Camera2D" instance=ExtResource("4_l3j7c")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_sevl1")
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(0, 4)
+
+[node name="HeartFull" type="Sprite2D" parent="HealthBar"]
+position = Vector2(-8, 16)
+texture = ExtResource("5_xsdyi")
+
+[node name="HeartFull2" type="Sprite2D" parent="HealthBar"]
+position = Vector2(0, 16)
+texture = ExtResource("5_xsdyi")
+
+[node name="HeartFull3" type="Sprite2D" parent="HealthBar"]
+position = Vector2(8, 16)
+texture = ExtResource("5_xsdyi")
