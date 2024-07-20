@@ -4,11 +4,13 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
-    pass
+    $LightPivot.look_at(player.global_position)
 
 
 func _process(_delta: float) -> void:
-    $LightPivot.look_at(player.global_position)
+    if global_position.distance_to(player.global_position) < 100.0:
+        $LightPivot.look_at(player.global_position)
+
     if player.global_position.x < global_position.x:
         $AnimatedSprite2D.flip_h = true
     else:
