@@ -86,7 +86,7 @@ script = ExtResource("1_dbj5v")
 sprite_frames = SubResource("SpriteFrames_oj2d0")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.890218
+frame_progress = 0.769434
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.5)

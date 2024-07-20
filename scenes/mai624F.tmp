@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://un77yrge6ivk"]
+[gd_scene load_steps=24 format=3 uid="uid://un77yrge6ivk"]
 
 [ext_resource type="Texture2D" uid="uid://cpegntwa4vnbp" path="res://assets/sprites/deep-night-tileset.png" id="1_nwnib"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_rddvn"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bmtff6wipcg0o" path="res://assets/sprites/heart_full.png" id="5_65ldl"]
 [ext_resource type="PackedScene" uid="uid://ct0vq6gd4x57c" path="res://scenes/game_over.tscn" id="6_kkvkx"]
 [ext_resource type="Texture2D" uid="uid://cq2eln86xng0q" path="res://assets/sprites/shadow_stag.png" id="8_1ex8v"]
-[ext_resource type="Texture2D" uid="uid://cb5ifovb7yosq" path="res://assets/sprites/shadow_kangaroo.png" id="8_pjyqi"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xu56o"]
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -1677,14 +1676,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tbiq2"]
 radius = 6.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_46trr"]
-atlas = ExtResource("8_pjyqi")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ptg0"]
-atlas = ExtResource("8_pjyqi")
-region = Rect2(32, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3p12"]
 atlas = ExtResource("8_1ex8v")
 region = Rect2(0, 0, 32, 32)
@@ -1695,17 +1686,6 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4mgh6"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_46trr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ptg0")
-}],
-"loop": true,
-"name": &"kangaroo_idle",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q3p12")
@@ -1769,7 +1749,7 @@ script = ExtResource("2_mg8nf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_4mgh6")
-animation = &"kangaroo_idle"
+animation = &"stag_idle"
 autoplay = "stag_idle"
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
