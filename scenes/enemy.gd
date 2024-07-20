@@ -8,10 +8,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-    if global_position.distance_to(player.global_position) < 100.0:
-        $LightPivot.look_at(player.global_position)
-
     if player.global_position.x < global_position.x:
         $AnimatedSprite2D.flip_h = true
+        $LightPivot.position.x = -2.0
     else:
         $AnimatedSprite2D.flip_h = false
+        $LightPivot.position.x = 2.0
