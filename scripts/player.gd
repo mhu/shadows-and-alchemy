@@ -42,4 +42,4 @@ func take_damage() -> void:
 
     if health == 0:
         get_tree().set_pause(true)
-        $Camera2D/CanvasLayer.set_visible(true)
+        $Camera2D/GameOverScreen.set_visible(true)
