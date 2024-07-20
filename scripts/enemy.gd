@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player: CharacterBody2D = $/root/Main/Player
+@onready var player: CharacterBody2D = owner.get_tree().current_scene.get_node("Player")
 
 
 func _ready() -> void:

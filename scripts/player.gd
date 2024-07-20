@@ -42,8 +42,6 @@ func _physics_process(delta: float) -> void:
 
 
 func play_animation(_type: String) -> void:
-    #$AnimatedSprite2D.play("%s_%s" % [Form.keys()[current_form].to_lower(), type])
-
     match current_form:
         Form.STAG:
             $AnimatedSprite2D.play("stag_idle")

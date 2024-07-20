@@ -1,6 +1,6 @@
 extends RayCast2D
 
-@onready var player: CharacterBody2D = $/root/Main/Player
+@onready var player: CharacterBody2D = owner.get_tree().current_scene.get_node("Player")
 @onready var light_pivot: Marker2D = get_node("../LightPivot")
 
 
