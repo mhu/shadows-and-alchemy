@@ -9,6 +9,10 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var empty_heart_texture: Texture = preload("res://assets/sprites/heart_empty.png")
 
 
+func _ready() -> void:
+    get_tree().set_pause(false)
+
+
 func _physics_process(delta: float) -> void:
     if not is_on_floor():
         velocity.y += gravity * delta
@@ -35,3 +39,7 @@ func _physics_process(delta: float) -> void:
 func take_damage() -> void:
     health = max(0, health - 1)
     $HealthBar.get_child(health).set_texture(empty_heart_texture)
+
+    if health == 0:
+        get_tree().set_pause(true)
+        $Camera2D/CanvasLayer.set_visible(true)
