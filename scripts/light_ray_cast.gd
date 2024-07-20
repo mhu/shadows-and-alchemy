@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
         collide_duration += delta
 
         if collide_duration >= time_until_damage:
-            point_light.hit()
+            point_light.hit(player)
             collide_duration = 0
     else:
         collide_duration = 0

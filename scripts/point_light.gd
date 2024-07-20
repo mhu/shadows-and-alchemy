@@ -16,12 +16,13 @@ func _process(_delta: float) -> void:
     pass
 
 
-func hit() -> void:
+func hit(target: CharacterBody2D) -> void:
+    if target.has_method("take_damage"):
+        target.take_damage()
+
     color = Color(255.0, 0.0, 0.0)
-    #Engine.set_time_scale(0.2)
     color_timer.start()
 
 
 func _on_color_timer_timeout() -> void:
-    #Engine.set_time_scale(1.0)
     color = Color(255.0, 255.0, 255.0)

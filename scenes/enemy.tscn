@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://mqqcthu8tkfv"]
 
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_dbj5v"]
 [ext_resource type="Texture2D" uid="uid://drdi0s4s5liqw" path="res://assets/sprites/ghost2_animations.png" id="1_r1m76"]
-[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_tn1cf"]
 [ext_resource type="Texture2D" uid="uid://br4ipw36rr1d1" path="res://assets/sprites/light-beam-large.png" id="2_kwid4"]
-[ext_resource type="Script" path="res://scenes/point_light.gd" id="4_4jml7"]
-[ext_resource type="Script" path="res://scenes/light_ray_cast.gd" id="5_cp8nj"]
-[ext_resource type="Script" path="res://scenes/detector_ray_cast.gd" id="6_wid4d"]
+[ext_resource type="Script" path="res://scripts/detector_ray_cast.gd" id="3_bgpvm"]
+[ext_resource type="Script" path="res://scripts/point_light.gd" id="5_vyi1t"]
+[ext_resource type="Script" path="res://scripts/light_ray_cast.gd" id="6_icada"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uolae"]
 atlas = ExtResource("1_r1m76")
@@ -50,7 +50,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -80,11 +80,12 @@ animations = [{
 size = Vector2(14, 15)
 
 [node name="Enemy" type="CharacterBody2D"]
-script = ExtResource("1_tn1cf")
+script = ExtResource("1_dbj5v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oj2d0")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.5)
@@ -92,7 +93,7 @@ shape = SubResource("RectangleShape2D_b5akp")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(200, 0)
-script = ExtResource("6_wid4d")
+script = ExtResource("3_bgpvm")
 
 [node name="LightPivot" type="Marker2D" parent="."]
 position = Vector2(2, -4)
@@ -101,8 +102,8 @@ position = Vector2(2, -4)
 shadow_enabled = true
 texture = ExtResource("2_kwid4")
 offset = Vector2(95, 0)
-script = ExtResource("4_4jml7")
+script = ExtResource("5_vyi1t")
 
 [node name="RayCast2D" type="RayCast2D" parent="LightPivot"]
 target_position = Vector2(195, 0)
-script = ExtResource("5_cp8nj")
+script = ExtResource("6_icada")

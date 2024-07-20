@@ -4,7 +4,9 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -350.0
 
+var health: int = 3
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var empty_heart_texture: Texture = preload("res://assets/sprites/heart_empty.png")
 
 
 func _physics_process(delta: float) -> void:
@@ -28,3 +30,8 @@ func _physics_process(delta: float) -> void:
         $AnimatedSprite2D.flip_h = true
 
     move_and_slide()
+
+
+func take_damage() -> void:
+    health = max(0, health - 1)
+    $HealthBar.get_child(health).set_texture(empty_heart_texture)

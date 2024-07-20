@@ -12,5 +12,4 @@ func _process(_delta: float) -> void:
     look_at(player.position)
 
     if is_colliding() and get_collider() == player:
-        print("looking")
         light_pivot.look_at(player.global_position)
