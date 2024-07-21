@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://benpylfxcrj4y"]
+[gd_scene load_steps=10 format=3 uid="uid://benpylfxcrj4y"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_n5vrx"]
 [ext_resource type="Texture2D" uid="uid://cpegntwa4vnbp" path="res://assets/sprites/deep-night-tileset.png" id="2_ogeyj"]
 [ext_resource type="PackedScene" uid="uid://d3kroei845mls" path="res://scenes/exit.tscn" id="3_kj7i6"]
+[ext_resource type="Texture2D" uid="uid://mvqqahsrjxmd" path="res://assets/sprites/tutorial_space.png" id="5_3t8il"]
+[ext_resource type="Texture2D" uid="uid://dqvyc7vjfq0ik" path="res://assets/sprites/tutorial_arrows.png" id="5_52c3t"]
 [ext_resource type="PackedScene" uid="uid://tfqmbcq0oip0" path="res://scenes/player.tscn" id="7_ewl5w"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xu56o"]
@@ -1641,6 +1643,14 @@ layer_0/tile_data = PackedInt32Array(1835008, 589826, 2, 1900544, 589826, 2, 196
 
 [node name="Exit" parent="." instance=ExtResource("3_kj7i6")]
 position = Vector2(382, 198)
+
+[node name="TutorialArrows" type="Sprite2D" parent="."]
+position = Vector2(70, 244)
+texture = ExtResource("5_52c3t")
+
+[node name="TutorialSpace" type="Sprite2D" parent="."]
+position = Vector2(215, 244)
+texture = ExtResource("5_3t8il")
 
 [node name="Player" parent="." instance=ExtResource("7_ewl5w")]
 position = Vector2(23, 265)
