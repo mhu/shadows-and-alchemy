@@ -2,11 +2,11 @@ extends CanvasLayer
 
 
 func _ready() -> void:
-    $MarginContainer/VBoxContainer/TimerLabel.text = "Time: " + format_time(TimerSingleton.get_elapsed_time())
+    pass
 
 
 func _process(_delta: float) -> void:
-    pass
+    $MarginContainer/VBoxContainer/TimerLabel.text = "Time: " + format_time(TimerSingleton.get_elapsed_time())
 
 
 func format_time(elapsed_time: float) -> String:
