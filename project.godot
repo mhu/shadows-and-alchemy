@@ -15,6 +15,10 @@ run/main_scene="res://scenes/tutorial.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TimerSingleton="*res://scripts/timer_singleton.gd"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=2
@@ -25,6 +29,10 @@ window/size/viewport_width=256
 window/size/viewport_height=144
 window/size/mode=2
 window/stretch/mode="viewport"
+
+[gui]
+
+theme/default_font_antialiasing=0
 
 [input]
 

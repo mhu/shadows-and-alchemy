@@ -1,6 +1,7 @@
 extends AnimatedSprite2D
 
 @onready var player: CharacterBody2D = owner.get_tree().current_scene.get_node("Player")
+@onready var game_over_screen: CanvasLayer = player.get_node("Camera2D/GameOverScreen")
 
 
 func _ready() -> void:
@@ -13,7 +14,6 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
     var current_scene_name: String = get_tree().current_scene.name
-    print(current_scene_name)
 
     match current_scene_name:
         "Tutorial":
@@ -27,6 +27,8 @@ func change_level() -> void:
 
 
 func show_game_over() -> void:
+    TimerSingleton.stop_timer()
+
     get_tree().set_pause(true)
-    player.get_node("Camera2D/GameOverScreen").set_visible(true)
+    game_over_screen.set_visible(true)
     Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
