@@ -41,12 +41,12 @@ func _physics_process(delta: float) -> void:
     move_and_slide()
 
 
-func play_animation(_type: String) -> void:
+func play_animation(type: String) -> void:
     match current_form:
         Form.STAG:
-            $AnimatedSprite2D.play("stag_idle")
+            $AnimatedSprite2D.play("stag_" + type)
         Form.KANGAROO:
-            $AnimatedSprite2D.play("kangaroo_idle")
+            $AnimatedSprite2D.play("kangaroo_" + type)
         _:
             $AnimatedSprite2D.play("stag_idle")
 
