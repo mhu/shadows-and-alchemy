@@ -17,6 +17,8 @@ func _process(_delta: float) -> void:
 
 
 func hit(target: CharacterBody2D) -> void:
+    MusicSingleton.play_enemy_hit()
+
     if target.has_method("take_damage"):
         target.take_damage()
 
