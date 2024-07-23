@@ -190,7 +190,7 @@ script = ExtResource("1_5ypc7")
 sprite_frames = SubResource("SpriteFrames_4mgh6")
 animation = &"kangaroo_run"
 autoplay = "stag_idle"
-frame_progress = 0.0226574
+frame_progress = 0.734739
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
