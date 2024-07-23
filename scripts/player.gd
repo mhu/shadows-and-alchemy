@@ -71,8 +71,11 @@ func take_damage() -> void:
     $HealthBar.get_child(health).set_texture(empty_heart_texture)
 
     if health == 0:
+        TimerSingleton.stop_timer()
+
         get_tree().set_pause(true)
         $Camera2D/GameOverScreen.set_visible(true)
+        Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func change_form() -> void:
