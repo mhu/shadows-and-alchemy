@@ -8,6 +8,7 @@ func _ready() -> void:
     music.stream = load("res://assets/music/shadows-and-alchemy.mp3")
     music.autoplay = true
     music.volume_db = -5
+    music.process_mode = Node.PROCESS_MODE_ALWAYS
     add_child(music)
 
     sound.stream = load("res://assets/music/shadows-and-alchemy-hit.mp3")
