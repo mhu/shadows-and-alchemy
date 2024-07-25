@@ -12,6 +12,7 @@ func _ready() -> void:
     add_child(music)
 
     sound.stream = load("res://assets/music/shadows-and-alchemy-hit.mp3")
+    sound.process_mode = Node.PROCESS_MODE_ALWAYS
     add_child(sound)
 
 
