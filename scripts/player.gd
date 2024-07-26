@@ -61,9 +61,9 @@ func get_speed(form: Form) -> float:
 func get_jump_velocity(form: Form) -> float:
     match form:
         Form.KANGAROO:
-            return -450.0
+            return -550.0
         _:
-            return -350.0
+            return -380.0
 
 
 func take_damage() -> void:
