@@ -220,3 +220,13 @@ texture = ExtResource("5_xsdyi")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(200, 0)
+
+[node name="RegenerationParticles" type="CPUParticles2D" parent="."]
+visible = false
+amount = 2
+lifetime = 0.7
+speed_scale = 0.5
+texture = ExtResource("5_xsdyi")
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector2(0, -50)

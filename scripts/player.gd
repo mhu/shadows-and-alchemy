@@ -7,6 +7,7 @@ enum Form {
 
 @onready var health_bar: Node = $HealthBar
 @onready var ray_cast: RayCast2D = $RayCast2D
+@onready var regeneration_particles: CPUParticles2D = $RegenerationParticles
 const MAX_HEALTH: int = 3
 var enemies: Node
 var health: int = MAX_HEALTH
@@ -15,7 +16,7 @@ var full_heart_texture: Texture = preload("res://assets/sprites/heart_full.png")
 var empty_heart_texture: Texture = preload("res://assets/sprites/heart_empty.png")
 var current_form: Form = Form.STAG
 var regeneration_time: float = 0.0
-var time_until_regenerate: float = 2.0
+var time_until_regenerate: float = 3.0
 
 
 func _ready() -> void:
@@ -60,12 +61,18 @@ func _process(delta: float) -> void:
     ray_cast.look_at(closest_enemy.global_position)
     if ray_cast.is_colliding() && ray_cast.get_collider() == CharacterBody2D: # FIXME
         regeneration_time = 0.0
+        regeneration_particles.visible = false
         return
 
     regeneration_time += delta
+    regeneration_particles.visible = true
+
     if regeneration_time >= time_until_regenerate:
         update_health(1)
         regeneration_time = 0.0
+
+        if health == MAX_HEALTH:
+            regeneration_particles.visible = false
 
 
 func get_closest_enemy() -> CharacterBody2D:
