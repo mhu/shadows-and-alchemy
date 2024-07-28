@@ -1,6 +1,5 @@
 extends Node
 
-
 var start_time: float = 0
 var end_time: float = 0
 
