@@ -5,14 +5,22 @@ enum Form {
     KANGAROO,
 }
 
-var health: int = 3
+@onready var health_bar: Node = $HealthBar
+@onready var ray_cast: RayCast2D = $RayCast2D
+const MAX_HEALTH: int = 3
+var enemies: Node
+var health: int = MAX_HEALTH
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var full_heart_texture: Texture = preload("res://assets/sprites/heart_full.png")
 var empty_heart_texture: Texture = preload("res://assets/sprites/heart_empty.png")
 var current_form: Form = Form.STAG
+var regeneration_time: float = 0.0
+var time_until_regenerate: float = 2.0
 
 
 func _ready() -> void:
-    pass
+    if get_tree().current_scene.has_node("Enemies"):
+        enemies = get_tree().current_scene.get_node("Enemies")
 
 
 func _physics_process(delta: float) -> void:
@@ -41,6 +49,40 @@ func _physics_process(delta: float) -> void:
     move_and_slide()
 
 
+func _process(delta: float) -> void:
+    if health >= MAX_HEALTH:
+        return
+
+    var closest_enemy: CharacterBody2D = get_closest_enemy()
+    if closest_enemy == null:
+        return
+
+    ray_cast.look_at(closest_enemy.global_position)
+    if ray_cast.is_colliding() && ray_cast.get_collider() == CharacterBody2D: # FIXME
+        regeneration_time = 0.0
+        return
+
+    regeneration_time += delta
+    if regeneration_time >= time_until_regenerate:
+        update_health(1)
+        regeneration_time = 0.0
+
+
+func get_closest_enemy() -> CharacterBody2D:
+    if enemies == null:
+        return null
+
+    var closest_enemy: Node = null
+    var closest_distance: float = INF
+
+    for enemy in enemies.get_children():
+        if global_position.distance_to(enemy.global_position) < closest_distance:
+            closest_enemy = enemy
+            closest_distance = global_position.distance_to(enemy.global_position)
+
+    return closest_enemy
+
+
 func play_animation(type: String) -> void:
     match current_form:
         Form.STAG:
@@ -49,6 +91,7 @@ func play_animation(type: String) -> void:
             $AnimatedSprite2D.play("kangaroo_" + type)
         _:
             $AnimatedSprite2D.play("stag_idle")
+
 
 func get_speed(form: Form) -> float:
     match form:
@@ -67,8 +110,7 @@ func get_jump_velocity(form: Form) -> float:
 
 
 func take_damage() -> void:
-    health = max(0, health - 1)
-    $HealthBar.get_child(health).set_texture(empty_heart_texture)
+    update_health(-1)
 
     if health == 0:
         TimerSingleton.stop_timer()
@@ -77,6 +119,15 @@ func take_damage() -> void:
         $Camera2D/GameOverScreen.set_visible(true)
         Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+
+func update_health(amount: int) -> void:
+    health = max(0, health + amount)
+
+    for n in range(MAX_HEALTH):
+        if n < health:
+            health_bar.get_child(n).set_texture(full_heart_texture)
+        else:
+            health_bar.get_child(n).set_texture(empty_heart_texture)
 
 func change_form() -> void:
     match current_form:

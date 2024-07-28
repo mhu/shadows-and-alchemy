@@ -217,3 +217,6 @@ texture = ExtResource("5_xsdyi")
 [node name="HeartFull3" type="Sprite2D" parent="HealthBar"]
 position = Vector2(8, 16)
 texture = ExtResource("5_xsdyi")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(200, 0)
