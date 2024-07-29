@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://tfqmbcq0oip0"]
+[gd_scene load_steps=29 format=3 uid="uid://tfqmbcq0oip0"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5ypc7"]
 [ext_resource type="Texture2D" uid="uid://cb5ifovb7yosq" path="res://assets/sprites/shadow_kangaroo.png" id="2_n21gf"]
@@ -56,6 +56,22 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("3_12wms")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvdbo"]
+atlas = ExtResource("5_518vm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuktw"]
+atlas = ExtResource("5_518vm")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38v3t"]
+atlas = ExtResource("5_518vm")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_betoa"]
+atlas = ExtResource("5_518vm")
+region = Rect2(224, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_v420n"]
 atlas = ExtResource("5_518vm")
 region = Rect2(0, 0, 32, 32)
@@ -67,26 +83,6 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_auu0m"]
 atlas = ExtResource("5_518vm")
 region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mvdbo"]
-atlas = ExtResource("5_518vm")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kuktw"]
-atlas = ExtResource("5_518vm")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1ugw"]
-atlas = ExtResource("5_518vm")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_38v3t"]
-atlas = ExtResource("5_518vm")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_betoa"]
-atlas = ExtResource("5_518vm")
-region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4mgh6"]
 animations = [{
@@ -143,6 +139,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mvdbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuktw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38v3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_betoa")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_v420n")
 }, {
 "duration": 1.0,
@@ -159,21 +167,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_auu0m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mvdbo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kuktw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r1ugw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_38v3t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_betoa")
 }],
 "loop": true,
 "name": &"stag_run",
@@ -188,9 +181,8 @@ script = ExtResource("1_5ypc7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4mgh6")
-animation = &"kangaroo_run"
+animation = &"stag_run"
 autoplay = "stag_idle"
-frame_progress = 0.734739
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
