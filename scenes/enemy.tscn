@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://mqqcthu8tkfv"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_dbj5v"]
-[ext_resource type="Texture2D" uid="uid://drdi0s4s5liqw" path="res://assets/sprites/ghost2_animations.png" id="1_r1m76"]
-[ext_resource type="Texture2D" uid="uid://br4ipw36rr1d1" path="res://assets/sprites/light-beam-large.png" id="2_kwid4"]
+[ext_resource type="Texture2D" uid="uid://drdi0s4s5liqw" path="res://assets/sprites/ghost_animations.png" id="1_r1m76"]
+[ext_resource type="Texture2D" uid="uid://br4ipw36rr1d1" path="res://assets/sprites/light_beam_large.png" id="2_kwid4"]
 [ext_resource type="Script" path="res://scripts/detector_ray_cast.gd" id="3_bgpvm"]
 [ext_resource type="Script" path="res://scripts/point_light.gd" id="5_vyi1t"]
 [ext_resource type="Script" path="res://scripts/light_ray_cast.gd" id="6_icada"]
