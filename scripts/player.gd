@@ -8,6 +8,7 @@ enum Form {
 @onready var health_bar: Node = $HealthBar
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var regeneration_particles: CPUParticles2D = $RegenerationParticles
+const STARTING_POSITION: Vector2 = Vector2(23.0, -23.0)
 const MAX_HEALTH: int = 3
 var enemies: Node
 var health: int = MAX_HEALTH
