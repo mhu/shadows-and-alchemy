@@ -49,3 +49,17 @@ position = Vector2(23, -23)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.25098, 0.25098, 0.25098, 1)
+
+[node name="ExitLocations" type="Node" parent="."]
+
+[node name="Exit1" type="Node2D" parent="ExitLocations"]
+position = Vector2(484, -292)
+
+[node name="Exit2" type="Node2D" parent="ExitLocations"]
+position = Vector2(420, -292)
+
+[node name="Exit3" type="Node2D" parent="ExitLocations"]
+position = Vector2(420, -36)
+
+[node name="Exit4" type="Node2D" parent="ExitLocations"]
+position = Vector2(36, -164)
