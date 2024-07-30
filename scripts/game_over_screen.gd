@@ -20,7 +20,3 @@ func format_time(elapsed_time: float) -> String:
 
 func _on_retry_button_pressed() -> void:
     get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
-
-
-func _on_quit_button_pressed() -> void:
-    get_tree().quit()

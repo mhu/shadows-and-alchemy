@@ -42,7 +42,7 @@ I composed the background music and the sound effects using Ableton Live 11. I o
 
 ## UI
 
-The player's remaining lives are displayed underneath the character's model. The tutorial level uses three sprites that explain to the player how the game's mechanics work. When the game is completed or the player loses all lives, a game over screen including a retry button and a quit button is shown.
+The player's remaining health is displayed underneath the character's model. The tutorial level uses three sprites that explain to the player how the game's mechanics work. When the game is completed or the player's health is depleted, a game over screen with the game completion time and a retry button is shown.
 
 ## Game Controls
 
