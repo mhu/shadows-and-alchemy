@@ -136,6 +136,7 @@ func update_health(amount: int) -> void:
         else:
             health_bar.get_child(n).set_texture(empty_heart_texture)
 
+
 func change_form() -> void:
     match current_form:
         Form.STAG:

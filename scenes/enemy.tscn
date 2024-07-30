@@ -100,7 +100,6 @@ script = ExtResource("3_bgpvm")
 position = Vector2(2, -4)
 
 [node name="PointLight2D" type="PointLight2D" parent="LightPivot"]
-shadow_enabled = true
 texture = ExtResource("2_kwid4")
 offset = Vector2(95, 0)
 script = ExtResource("5_vyi1t")
