@@ -9,18 +9,14 @@
 
 ## Game Summary
 
-Shadows and Alchemy is a 2D platformer that uses transformations as its main mechanic. The player can transform between two different forms to overcome obstacles and enemies. The game's visual design is based on shadows and darkness, with enemies emitting lights that will damage the player if they remain in them for too long.
+Shadows and Alchemy is a 2D platformer that uses transformations as its main mechanic. The player can transform between two different forms to overcome obstacles and enemies. The game's visual design is based on shadows and darkness, with enemies emitting lights that can damage the player.
 
 ## Theme Interpretation
 
-The two themes - shadows and alchemy - have been interpreted and implemented in the following ways:
+The two themes - shadows and alchemy - have been interpreted in the following ways:
 
 - Shadows: The game's visual design is based on shadows and darkness. Enemies emit lights that will damage the player if they remain in them for too long.
 - Alchemy: The game utilizes Alchemy's definition has Transformation, giving the player the ability to change forms to overcome obstacles that would be impossible to overcome otherwise.
-
-## Story
-
-The game does not have a story.
 
 ## Characters
 
@@ -33,7 +29,7 @@ The environment and the protagonist's models have dark tones, reflecting the sha
 
 ## Gameplay
 
-The game features very basic 2D platforming controls, making it very accessible to new players. The player tries to dodge enemies' lights and find exit portals to complete the game. Remaining in the shadows for a couple of seconds while being damaged causes the player to slowly regenerate health. This mechanic allows players that need assistance to take their time and regenerate health before moving on at the cost of a slower completion time.
+The game features very basic 2D platforming controls, making it very accessible to new players. The player tries to dodge enemies' lights and find exit portals to complete the game. Remaining in the shadows for a couple of seconds while being damaged causes the player to slowly regenerate health.
 The game uses semi-randomized exit portal locations and a game over screen features a game completion timer to encourage replayability.
 
 ## Art
@@ -54,4 +50,4 @@ The game is plated with a keyboard. The A and D keys move the player left and ri
 
 ## Accessibility
 
-The game features the ability to regenerate health while standing in the shadows, allowing players that need assistance to complete the game, albeit at a slower pace.
+The game features the ability to regenerate health while standing in the shadows. This mechanic allows players that need assistance to take their time and regenerate health before moving on at the cost of a slower completion time.
